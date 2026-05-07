@@ -1,0 +1,14 @@
+# FocusGuard için tam özellikli kütüphaneler.
+# Python 3.11 ile önerilir (MediaPipe 3.13'te henüz stabil değil).
+
+opencv-python>=4.8.0
+mediapipe==0.10.14
+ultralytics>=8.3.0
+numpy>=1.24.0,<2.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+scipy>=1.10.0
+pygetwindow>=0.0.9
+pillow>=10.0.0
+plyer>=2.1.0
