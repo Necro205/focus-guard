@@ -1,53 +1,45 @@
-# 🎯 FocusGuard — Akıllı Odaklanma Asistanı
+# 🎯 FocusGuard — Smart Productivity Assistant
 
-Üniversite bitirme/entegrasyon projesi. Webcam, nesne tanıma ve sistem izleme kullanarak çalışma oturumlarındaki dikkat dağınıklıklarını gerçek zamanlı tespit eder; oturum sonunda detaylı istatistiksel rapor üretir.
+An AI-powered application that uses a webcam, object detection, and system monitoring to identify distractions during study sessions in real-time and generates detailed statistical reports upon completion.
 
-## 📚 Kapsadığı Ders Konuları
+## 📚 Academic Context
 
-| Ders | Uygulanan Konular |
-|------|-------------------|
-| **Veri Yapıları** | Deque (kayar pencere), Hash Map (O(1) erişim), Min-Heap (öncelik kuyruğu), Interval Tree (zaman aralığı sorgusu) |
-| **Bilgisayarla Görme** | Yüz landmark tespiti, kafa pozu tahmini (solvePnP), Eye Aspect Ratio (EAR), YOLOv8 nesne tanıma |
-| **İstatistik** | Tanımlayıcı istatistikler, zaman serisi analizi, korelasyon matrisi, hipotez testi |
-| **Yazılım Mühendisliği** | Modüler mimari, thread yönetimi, GUI tasarımı, rapor üretimi |
+| Field | Applied Topics |
+| :--- | :--- |
+| **Computer Vision** | Facial landmark detection, head pose estimation (solvePnP), Eye Aspect Ratio (EAR), and YOLOv8-based object detection |
+| **Statistics** | Descriptive statistics, time series analysis of focus levels, correlation matrices, and hypothesis testing |
+| **Software Engineering** | Modular software architecture, multi-thread management, GUI design, and automated report generation |
 
-## 🚀 Kurulum
+## 🚀 Installation
+
+Ensure you have Python installed, then follow these steps to set up your environment:
 
 ```bash
+# Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate      # Linux/Mac
-venv\Scripts\activate         # Windows
+source venv/bin/activate      # For Linux/Mac
+venv\Scripts\activate         # For Windows
 
+# Install dependencies and run the application
 pip install -r requirements.txt
 python main.py
 ```
 
-## 🗂 Proje Yapısı
+## 🗂 Project Structure
 
-```
-focus_guard/
-├── main.py                      # Ana uygulama (GUI + orchestration)
-├── config.py                    # Yapılandırma sabitleri
-├── requirements.txt
-├── modules/
-│   ├── face_detector.py         # MediaPipe ile yüz + kafa pozu
-│   ├── phone_detector.py        # YOLOv8 ile telefon tespiti
-│   ├── activity_monitor.py      # Aktif pencere + sosyal medya tespiti
-│   └── feedback.py              # Gerçek zamanlı kullanıcı uyarıları
-├── data_structures/
-│   ├── event_deque.py           # Kayar pencere için deque
-│   ├── session_hashmap.py       # Dakika-bazlı istatistik hash map
-│   ├── alert_heap.py            # Öncelikli uyarı kuyruğu (min-heap)
-│   └── interval_tree.py         # Zaman aralığı sorgusu için BST
-└── analysis/
-    ├── statistics_engine.py     # İstatistiksel analiz
-    └── report_generator.py      # HTML raporu
-```
+The project follows a modular hierarchy to ensure maintainability and organized data management:
 
-## 🎮 Kullanım
+* **`main.py`**: The primary entry point for the GUI and application orchestration.
+* **`config.py`**: Configuration constants and global settings.
+* **`modules/`**: Contains core logic for AI components like face and phone detection.
+* **`data_structures/`**: Custom implementations for handling session data efficiently.
+* **`reports/`**: Stores generated session summaries and technical presentations.
+* **`yolov8n.pt`**: Pre-trained YOLOv8 model file for real-time object detection.
 
-1. `python main.py` ile başlat
-2. "Oturumu Başlat" → webcam aktif olur
-3. Çalışmaya başla; sistem arka planda odaklanma puanını takip eder
-4. Dikkat dağıldığında anında uyarı (popup + ses)
-5. "Oturumu Bitir" → detaylı HTML raporu otomatik açılır
+## 🎮 Usage
+
+1.  **Launch**: Run `python main.py` to open the FocusGuard interface.
+2.  **Start Session**: Click the "Start Session" button to activate the webcam and begin monitoring.
+3.  **Active Tracking**: The system calculates your focus score in real-time based on posture and active screen windows.
+4.  **Instant Alerts**: Receive immediate visual or auditory feedback when a distraction is detected.
+5.  **Analytics**: Click "End Session" to automatically generate and view a detailed HTML productivity report.
